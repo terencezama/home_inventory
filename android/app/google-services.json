@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "776007952664",
+    "firebase_url": "https://home-inventory-da381.firebaseio.com",
+    "project_id": "home-inventory-da381",
+    "storage_bucket": "home-inventory-da381.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776007952664:android:df250b342f7aede0",
+        "android_client_info": {
+          "package_name": "com.terence.homeinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776007952664-70k5iajjhkeiabq5rvllf8lmnvqtp2rm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVD2yiInD9l7h0r4LZ5_9C_I77ofqLvIY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
