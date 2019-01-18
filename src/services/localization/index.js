@@ -6,7 +6,7 @@ import fr from './translations/fr.json';
 
 
 // i18n.locale = RNLanguages.language;
-i18n.locale = 'fr';
+i18n.locale = 'en';
 i18n.fallbacks = true;
 i18n.translations = { en, fr };
 

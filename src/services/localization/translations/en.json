@@ -1,3 +1,52 @@
 {
-    "registration_title":"Registration"
+    "loading": "Loading...",
+    "welcome_msg":"Home Inventory",
+    "welcome_title":"Home Inventory",
+
+    "registration_title":"Registration",
+    "registration_submit":"Submit",
+
+    "login_title":"Login",
+    "login_submit":"Login",
+
+    "forgot_title":"Forgot password",
+    "forgot_submit":"Submit",
+
+    "field_nickname":"Nickname",
+    "field_email":"Email",
+    "field_password":"Password",
+    "field_mobile":"Mobile Number",
+
+
+    "welcome_continue":"Continue",
+
+    "validation_invalid_email":"Invalid email",
+    "validation_required":"Field is required",
+    "validation_too_short":"Too short",
+    "validation_mobile":"Invalid mobile number",
+
+    "success-forgetpassword":"An email with a reset link has been sent to you please verify",
+
+    "auth/account-exists-with-different-credential":"Account already exists",
+    "auth/invalid-credential":"Invalid credentials",
+    "auth/operation-not-allowed":"Operation is not allowed",
+    "auth/user-disabled":"User is disabled",
+    "auth/user-not-found":"User not found",
+    "auth/wrong-password":"Wrong password.",
+    "auth/invalid-verification-code":"Invalid verification code.",
+    "auth/invalid-verification-id":"Invalid verification id",
+    "auth/email-already-in-use":"Email is already in use.",
+    "auth/invalid-email":"Email address is invalid",
+    "auth/weak-password":"Password is weak.",
+
+    "menu/bible":"Bible LSG",
+    "menu/shares":"Partages",
+    "menu/events":"Évenements",
+    "menu/summaries":"Résumés",
+    "menu/notifications":"Notifications",
+    "menu/highlights":"Points forts",
+    "menu/history":"Histoire",
+    "menu/logout":"Quittez",
+    "menu/verse":"Verset du jour",
+
 }

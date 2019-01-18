@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
-import { TextField } from 'react-native-material-textfield'
-import { Formik } from 'formik';
 import { withTheme, Button, Card } from 'react-native-material-ui'
 import { i18n, NavigationService } from '../../../services';
 import { material } from 'react-native-typography'
@@ -14,9 +12,7 @@ class WelcomeScreen extends Component {
   };
 
   componentWillMount() {
-    this.props.fetchWelcomeText();
     this.props.checkIfUserLoggedIn();
-    // this.props.logoutRequest();
   }
 
   _onLoginPressed = e => {
@@ -35,15 +31,9 @@ class WelcomeScreen extends Component {
     const { theme } = this.props;
     return (
       <View style={[theme.palette.screen, { justifyContent: 'space-between' }]}>
-        <Text style={[material.display1, { textAlign: 'center' }]}>{i18n.t('welcome_msg')}</Text>
-        <View>
-          <ScrollView>
-            <Text style={material.body1}>
-              {this.props.ui.welcome.verse}
-            </Text>
-            <Text style={material.body2}>{this.props.ui.welcome.title}</Text>
-          </ScrollView>
-        </View>
+       <View>
+         
+       </View>
 
         {
           (() => {
@@ -79,7 +69,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchWelcomeText: (params) => dispatch(performAction(params, Types.WELCOME)),
   checkIfUserLoggedIn: params => dispatch(performAction(params, Types.CHECK_USER_LOGGEDIN)),
   logoutRequest: () => dispatch(performAction(undefined,Types.USER_LOGOUT)),
 })

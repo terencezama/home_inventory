@@ -14,6 +14,9 @@ class Screen extends Component {
                 animationType="fade"
                 transparent={true}
                 visible={this.props.loading}
+                onRequestClose={()=>{
+                  
+                }}
                >
                <View style={styles.container}>
                    <View style={styles.content}>

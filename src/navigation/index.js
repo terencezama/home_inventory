@@ -1,7 +1,6 @@
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
-import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen, SharesScreen, EventsScreen, SummariesScreen, BibleScreen } from '../containers';
+import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen } from '../containers';
 import theme from '../theme'
-import { BibleBookView, BibleChapterView, BibleHighlightsScreen } from '../containers/core/bible';
 import { DrawerComponent } from '../components';
 import {Easing,Animated} from 'react-native'
 
@@ -12,13 +11,13 @@ const RootStack = createStackNavigator({
     ForgotScreen: { screen: ForgotScreen },
     LoginScreen: { screen: LoginScreen },
     RegisterScreen: { screen: RegisterScreen },
-    main: { screen: BibleScreen }
+    // main: { screen: BibleScreen }
 }, {
         initialRouteName: "WelcomeScreen",
         defaultNavigationOptions: {
             headerTintColor: theme.palette.primaryColor,
             headerTitleStyle: { color: theme.palette.textColor }
-        }
+        },
     })
 
 const ModalStack = createStackNavigator({
@@ -52,7 +51,7 @@ const ModalStack = createStackNavigator({
         // })
     })
 const MainNavigator = createDrawerNavigator({
-    main: ModalStack
+    main: RootStack
 }, {
         contentComponent: DrawerComponent,
     })
