@@ -1,9 +1,11 @@
-package com.home_inventory;
+package com.terence.homeinventory;
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.home_inventory.BuildConfig;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
+import com.calendarevents.CalendarEventsPackage;
+import com.terence.homeinventory.BuildConfig;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -33,14 +35,18 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerPackage(),
+            new CalendarEventsPackage(),
             new VectorIconsPackage(),
             new RNLanguagesPackage(),
             new RNGestureHandlerPackage(),
             new RNFSPackage(),
             new RNFirebasePackage(),
-              new RNFirebaseFirestorePackage(),
+              new RNFirebaseAnalyticsPackage(),
               new RNFirebaseAuthPackage(),
-              new RNFirebaseAnalyticsPackage()
+              new RNFirebaseFirestorePackage()
+
+
       );
     }
 

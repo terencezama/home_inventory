@@ -1,4 +1,4 @@
-package com.home_inventory;
+package com.terence.homeinventory;
 
 import com.facebook.react.ReactActivity;
 

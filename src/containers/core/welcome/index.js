@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image, Dimensions } from 'react-native'
 import { withTheme, Button, Card } from 'react-native-material-ui'
 import { i18n, NavigationService } from '../../../services';
-import { material } from 'react-native-typography'
 import { ScrollView } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { performAction, Types } from '../../../state';
+import { Images } from '../../../assets';
+import {material} from 'react-native-typography'
 class WelcomeScreen extends Component {
   static navigationOptions = {
     title: i18n.t('welcome_title'),
+    header: null
   };
 
   componentWillMount() {
@@ -31,8 +33,10 @@ class WelcomeScreen extends Component {
     const { theme } = this.props;
     return (
       <View style={[theme.palette.screen, { justifyContent: 'space-between' }]}>
-       <View>
-         
+       <View style={{alignItems:'center'}}>
+         <Text style={[material.title,{textAlign:'center',marginBottom:20 }]}>{'Home Inventory'}</Text>
+         <Image source={Images.welcome.appicon} style={{width: Dimensions.get('window').width/2, height:Dimensions.get('window').width/2}} resizeMode={'stretch'}  />
+
        </View>
 
         {

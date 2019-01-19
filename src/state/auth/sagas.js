@@ -18,7 +18,7 @@ export function* checkUserLoggedIn(action) {
     })
     yield put(performAction(result.is_loggedin, Types.UPDATE_USER_LOGGEDIN));
     if (result.user) {
-        let collection = firebase.firestore().collection('cenacle').doc('user').collection('details')
+        let collection = firebase.firestore().collection('homeinventory').doc('user').collection('details')
 
         const res = yield collection.doc(result.user.uid).get();
         console.log('trying to get user', res);
@@ -35,7 +35,7 @@ export function* loginUser(action) {
         yield put(performAction(1, Types.UPDATE_USER_LOGGEDIN));
         yield put(performAction(res, success(Types.USER_LOGIN)));
         if (res.user) {
-            let collection = firebase.firestore().collection('cenacle').doc('user').collection('details')
+            let collection = firebase.firestore().collection('homeinventory').doc('user').collection('details')
     
             const userData = yield collection.doc(res.user.uid).get();
             console.log('trying to get user', res);
@@ -43,8 +43,10 @@ export function* loginUser(action) {
         }
         yield delay(600) // delay longer because of double loading screen
         NavigationService.reset('main');
+        console.log('success login');
 
     } catch (e) {
+        console.log('error',e);
         yield put(performAction(-1, Types.UPDATE_USER_LOGGEDIN));
         yield put(performAction(e, failure(Types.USER_LOGIN)));
         setTimeout(() => {
@@ -55,15 +57,15 @@ export function* loginUser(action) {
 }
 export function* registerUser(action) {
     console.log('registerUser', action);
-    const { payload: { email: mail, password, mobile, nickname } } = action;
+    const { payload: { email: mail, password, nickname } } = action;
     let email = mail.toLowerCase();
     try {
         const user = yield firebase.auth().createUserWithEmailAndPassword(email, password);
-        let collection = firebase.firestore().collection('cenacle').doc('user').collection('details')
+        let collection = firebase.firestore().collection('homeinventory').doc('user').collection('details')
         const data = {
             uid: user.user.uid,
             email,
-            mobile,
+            // mobile,
             nickname,
             role: 'user'
         }
@@ -71,6 +73,7 @@ export function* registerUser(action) {
         yield collection.doc(user.user.uid).set(data)
         yield put(performAction(data, success(Types.USER_REGISTER)));
         yield delay(300)
+        console.log('registerUser');
         NavigationService.reset_withPrevious(['WelcomeScreen', 'LoginScreen']);
 
     } catch (e) {

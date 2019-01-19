@@ -19,9 +19,9 @@ const RegisterSchema = Yup.object().shape({
     password: Yup.string()
         .min(6, i18n.t('validation_too_short'))
         .required(i18n.t('validation_required')),
-    mobile: Yup.number()
-        .min(7, i18n.t('validation_mobile'))
-        .required(i18n.t('validation_required')),
+    cpassword: Yup.string()
+        .oneOf([Yup.ref('password'), null],"Passwords don't match")
+        .required('Password confirm is required')
 });
 
 class RegisterScreen extends Component {
@@ -60,7 +60,7 @@ class RegisterScreen extends Component {
                                 nickname: '',
                                 email: '',
                                 password: '',
-                                mobile: ''
+                                cpassword: '',
 
                             }}
                             validationSchema={RegisterSchema}
@@ -95,11 +95,12 @@ class RegisterScreen extends Component {
 
                                     />
                                     <TextField
-                                        onChangeText={props.handleChange('mobile')}
-                                        onBlur={props.handleBlur('mobile')}
-                                        value={props.values.mobile}
-                                        label={i18n.t('field_mobile')}
-                                        error={props.touched.mobile ? props.errors.mobile : undefined}
+                                        onChangeText={props.handleChange('cpassword')}
+                                        onBlur={props.handleBlur('cpassword')}
+                                        value={props.values.cpassword}
+                                        label={i18n.t('field_cpassword')}
+                                        secureTextEntry
+                                        error={props.touched.cpassword ? props.errors.cpassword : undefined}
 
                                     />
                                     <Button onPress={props.handleSubmit} raised primary text={i18n.t('registration_submit')} disabled={props.isSubmitting || !props.isValid} />
