@@ -49,6 +49,7 @@ class InventoryEditor extends Component {
                     <Formik
                         initialValues={{
                             name:'',
+                            unitprice:1
                             // description:'',
                             // tag: []
 
@@ -67,6 +68,16 @@ class InventoryEditor extends Component {
                                     value={props.values.name}
                                     label={i18n.t('field_name')}
                                     error={props.touched.name ? props.errors.name : undefined}
+                                    
+
+                                />
+                                <TextField
+                                    onChangeText={props.handleChange('unitprice')}
+                                    onBlur={props.handleBlur('unitprice')}
+                                    value={props.values.unitprice}
+                                    label={i18n.t('field_unitprice')}
+                                    error={props.touched.unitprice ? props.errors.unitprice : undefined}
+                                    keyboardType={'numeric'}
 
                                 />
                                 <TextField
@@ -79,6 +90,7 @@ class InventoryEditor extends Component {
                                     numberOfLines={4}
 
                                 />
+                                
                                 <TextField
                                     onChangeText={props.handleChange('quantity')}
                                     onBlur={props.handleBlur('quantity')}
@@ -149,7 +161,7 @@ class InventoryEditor extends Component {
 }
 // export default withTheme(LoginScreen)
 const mapStateToProps = (state) => ({
-    // ui: state.ui,
+    ui: state.ui,
     // user_login: state.user_login
 })
 

@@ -18,13 +18,14 @@
     "field_cpassword":"Confirm Password",
     "field_mobile":"Mobile Number",
     "form/add_photo":"Add Photo",
-    "field_name":"Name",
+    "field_name":"Name*",
     "field_description":"Description",
     "field_quantity":"Quantity",
     "field_date_bought":"Date Bought",
     "field_exp_date":"Expiry Date",
     "field_weekly_consumption":"Weekly consumption",
     "field_tag":"Tag",
+    "field_unitprice":"Unit Price*",
 
 
     "welcome_continue":"Continue",
