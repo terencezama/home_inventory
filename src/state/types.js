@@ -13,6 +13,16 @@ export const success = (type) => {
 export const update = (type) => {
     return `${type}_UPDATE`;
 }
+
+export const create = (type) =>{
+    return `${type}_CREATE`;
+}
+export const read = (type) =>{
+    return `${type}_READ`;
+}
+export const remove = (type) =>{
+    return `${type}_DELETE`
+}
 // ####################################################
 
 
@@ -24,3 +34,5 @@ export const USER_LOGIN = "USER_LOGIN";
 export const USER_REGISTER = "USER_REGISTER";
 export const USER_FORGOTPASSWORD = "USER_FORGOTPASSWORD";
 export const USER_LOGOUT = "USER_LOGOUT";
+
+export const INVENTORY = "INVENTORY";

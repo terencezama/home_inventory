@@ -1,5 +1,5 @@
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
-import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen } from '../containers';
+import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen, InventoryEditorScreen, LoadingScreen } from '../containers';
 import theme from '../theme'
 import { DrawerComponent } from '../components';
 import {Easing,Animated} from 'react-native'
@@ -11,7 +11,7 @@ const RootStack = createStackNavigator({
     ForgotScreen: { screen: ForgotScreen },
     LoginScreen: { screen: LoginScreen },
     RegisterScreen: { screen: RegisterScreen },
-    // main: { screen: BibleScreen }
+    main: { screen: InventoryEditorScreen }
 }, {
         initialRouteName: "WelcomeScreen",
         defaultNavigationOptions: {
@@ -22,9 +22,17 @@ const RootStack = createStackNavigator({
 
 const ModalStack = createStackNavigator({
     root: RootStack,
+    loading:LoadingScreen
 }, {
         headerMode: 'none',
         mode: 'modal',
+        transparentCard:true,
+        // cardStyle: {
+        //     backgroundColor: 'transparent',
+        //     opacity: 1,
+        //  },
+
+        
         // transitionConfig: () => ({
         //     transitionSpec: {
         //         duration: 300,
@@ -51,7 +59,7 @@ const ModalStack = createStackNavigator({
         // })
     })
 const MainNavigator = createDrawerNavigator({
-    main: RootStack
+    main: ModalStack
 }, {
         contentComponent: DrawerComponent,
     })
