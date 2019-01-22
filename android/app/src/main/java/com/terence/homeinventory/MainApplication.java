@@ -3,6 +3,10 @@ package com.terence.homeinventory;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
+import com.tkporter.sendsms.SendSMSPackage;
+import com.rt2zz.reactnativecontacts.ReactNativeContacts;
+import com.rt2zz.reactnativecontacts.ReactNativeContacts;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.calendarevents.CalendarEventsPackage;
 import com.terence.homeinventory.BuildConfig;
@@ -27,6 +31,12 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+//        @Override
+//        protected String getJSBundleFile() {
+//        return CodePush.getJSBundleFile();
+//        }
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -36,6 +46,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
+            SendSMSPackage.getInstance(),
+            new ReactNativeContacts(),
             new PickerPackage(),
             new CalendarEventsPackage(),
             new VectorIconsPackage(),

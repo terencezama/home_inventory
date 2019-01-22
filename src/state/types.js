@@ -36,3 +36,4 @@ export const USER_FORGOTPASSWORD = "USER_FORGOTPASSWORD";
 export const USER_LOGOUT = "USER_LOGOUT";
 
 export const INVENTORY = "INVENTORY";
+export const RECIPES = "RECIPES";

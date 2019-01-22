@@ -6,12 +6,27 @@ import { Button } from 'react-native-material-ui'
 import styles from './styles'
 import { i18n } from '../../services';
 import PropTypes from 'prop-types';
+import firebase from 'react-native-firebase';
 class ImagePickerComponent extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             image: undefined
         };
+    }
+    componentDidMount(){
+        const {update:item} = this.props;
+        if(item){
+            if (item.fsimage) {
+                firebase.storage().ref(item.fsimage).getDownloadURL().then(url => {
+                    this.setState({ image: url });
+                }).catch(e => {
+                    //nothing can be done
+                    console.log('item image', e);
+                })
+            }
+        }
     }
     /*
     onChangeText={props.handleChange('tag')}

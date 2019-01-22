@@ -1,9 +1,8 @@
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
-import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen, InventoryEditorScreen, LoadingScreen } from '../containers';
+import { WelcomeScreen, ForgotScreen, LoginScreen, RegisterScreen, InventoryEditorScreen, LoadingScreen, InventoryListScreen, InventoryDetailsScreen, ContactsScreen, RecipesScreen, RecipesDetailsScreen, SettingsScreen } from '../containers';
 import theme from '../theme'
 import { DrawerComponent } from '../components';
-import {Easing,Animated} from 'react-native'
-
+import { Easing, Animated } from 'react-native'
 
 
 const RootStack = createStackNavigator({
@@ -11,7 +10,13 @@ const RootStack = createStackNavigator({
     ForgotScreen: { screen: ForgotScreen },
     LoginScreen: { screen: LoginScreen },
     RegisterScreen: { screen: RegisterScreen },
-    main: { screen: InventoryEditorScreen }
+    main: { screen: InventoryListScreen },
+    InventoryEditorScreen: { screen: InventoryEditorScreen },
+    InventoryDetailsScreen: { screen: InventoryDetailsScreen },
+    ContactsScreen:{screen:ContactsScreen},
+    RecipesScreen: {screen:RecipesScreen},
+    RecipesDetailsScreen: {screen:RecipesDetailsScreen},
+    SettingsScreen : {screen:SettingsScreen}
 }, {
         initialRouteName: "WelcomeScreen",
         defaultNavigationOptions: {
@@ -22,17 +27,17 @@ const RootStack = createStackNavigator({
 
 const ModalStack = createStackNavigator({
     root: RootStack,
-    loading:LoadingScreen
+    loading: LoadingScreen
 }, {
         headerMode: 'none',
         mode: 'modal',
-        transparentCard:true,
+        transparentCard: true,
         // cardStyle: {
         //     backgroundColor: 'transparent',
         //     opacity: 1,
         //  },
 
-        
+
         // transitionConfig: () => ({
         //     transitionSpec: {
         //         duration: 300,

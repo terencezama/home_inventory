@@ -21,8 +21,8 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+export {store};
 persistStore(store)
-
 sagaMiddleware.run(rootSagas);
 
 
@@ -108,3 +108,4 @@ export default class App extends React.Component {
 
   }
 }
+

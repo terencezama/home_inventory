@@ -1,8 +1,15 @@
 import {COLOR} from 'react-native-material-ui'
 import { TextField } from 'react-native-material-textfield'
-const uiTheme = {
+import SyncStorage from 'sync-storage';
+// if(!SyncStorage.get('primaryColor')){
+//   SyncStorage.set('primaryColor',COLOR.red500)
+//   console.log('initial color',SyncStorage.get('primaryColor'))
+// }
+let uiTheme = {
     palette: {
-      primaryColor: COLOR.red500,
+      get primaryColor() {
+        return SyncStorage.get('primaryColor') || COLOR.red500
+      },
       darkTextColor:COLOR.red100,
       textColor: 'black',
       backgroundColor:COLOR.grey50,

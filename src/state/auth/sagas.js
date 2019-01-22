@@ -21,8 +21,11 @@ export function* checkUserLoggedIn(action) {
         let collection = firebase.firestore().collection('homeinventory').doc('user').collection('details')
 
         const res = yield collection.doc(result.user.uid).get();
-        console.log('trying to get user', res);
-        yield put(performAction(res.data(), Types.UPDATE_USER));
+        
+
+        const token = yield result.user.getIdToken();
+        console.log('trying to get user', res,token);
+        yield put(performAction({...res.data(),token}, Types.UPDATE_USER));
     }
 }
 

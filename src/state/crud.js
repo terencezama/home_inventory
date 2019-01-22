@@ -1,149 +1,151 @@
 import { request, success, failure } from "./types";
 
-const INITIAL_STATE = {
-    create:undefined,
-    read:undefined, // or list
-    update:undefined,
-    delete:undefined
-  }
-
-  const rstate = {
+const rstate = {
     fetching: false,
     err: null,
     res: null,
     payload: null
-  }
-  
-  
-  export const crudReducer = (type) => (state = INITIAL_STATE, action) =>{
+}
+
+const INITIAL_STATE = {
+    create: rstate,
+    read: rstate, // or list
+    update: rstate,
+    delete: rstate
+}
+
+
+
+
+export const crudReducer = (type) => (state = INITIAL_STATE, action) => {
     const create_type = `${type}_CREATE`;
     const read_type = `${type}_READ`;
     const update_type = `${type}_UPDATE`;
     const delete_type = `${type}_DELETE`;
-    
+
     switch (action.type) {
-        case request(create_type):{
-            return{
+        case request(create_type): {
+            return {
                 ...state,
-                create:{
+                create: {
                     ...rstate,
-                    payload:action.payload,
-                    fetching:true
+                    payload: action.payload,
+                    fetching: true
                 }
             }
         }
-        case success(create_type):{
-            return{
+        case success(create_type): {
+            return {
                 ...state,
-                create:{
+                create: {
                     ...rstate,
-                    res:action.payload,
-                    fetching:false
+                    res: action.payload,
+                    fetching: false
                 }
             }
         }
         case failure(create_type):
-        {
+            {
+                return {
+                    ...state,
+                    create: {
+                        ...rstate,
+                        err: action.payload,
+                        fetching: false
+                    }
+                }
+            }
+        case request(read_type): {
             return {
                 ...state,
-                create:{
+                read: {
                     ...rstate,
-                    err:action.payload,
-                    fetching:false
+                    payload: action.payload,
+                    fetching: true
                 }
             }
         }
-        case request(read_type):{
-            return{
+        case success(read_type): {
+            return {
                 ...state,
-                read:{
+                read: {
                     ...rstate,
-                    payload:action.payload,
-                    fetching:true
+                    res: action.payload,
+                    fetching: false
                 }
             }
         }
-        case success(read_type):{
-            return{
+        case failure(read_type): {
+            return {
                 ...state,
-                read:{
+                read: {
                     ...rstate,
-                    res:action.payload,
-                    fetching:false
+                    err: action.payload,
+                    fetching: false
                 }
             }
         }
-        case failure(read_type):{
-            return{
+        case request(update_type): {
+            return {
                 ...state,
-                read:{
+                update: {
                     ...rstate,
-                    err:action.payload,
-                    fetching:false
+                    payload: action.payload,
+                    fetching: true
                 }
             }
         }
-        case request(update_type):{
-            return{
+        case success(update_type): {
+            return {
                 ...state,
-                update:{
+                update: {
                     ...rstate,
-                    payload:action.payload,
-                    fetching:true
+                    res: action.payload,
+                    fetching: false
                 }
             }
         }
-        case success(update_type):{
-            return{
+        case failure(update_type): {
+            return {
                 ...state,
-                update:{
+                update: {
                     ...rstate,
-                    res:action.payload,
-                    fetching:false
+                    err: action.payload,
+                    fetching: false
                 }
             }
         }
-        case failure(update_type):{
-            return{
+        case request(delete_type): {
+            return {
                 ...state,
-                update:{
+                delete: {
                     ...rstate,
-                    err:action.payload,
-                    fetching:false
+                    payload: action.payload,
+                    fetching: true
                 }
             }
         }
-        case request(delete_type):{
-            return{
+        case success(delete_type): {
+            return {
                 ...state,
-                delete:{
+                delete: {
                     ...rstate,
-                    payload:action.payload,
-                    fetching:true
+                    res: action.payload,
+                    fetching: false
                 }
             }
         }
-        case success(delete_type):{
-            return{
+        case failure(delete_type): {
+            return {
                 ...state,
-                delete:{
+                delete: {
                     ...rstate,
-                    res:action.payload,
-                    fetching:false
+                    err: action.payload,
+                    fetching: false
                 }
             }
         }
-        case failure(delete_type):{
-            return{
-                ...state,
-                delete:{
-                    ...rstate,
-                    err:action.payload,
-                    fetching:false
-                }
-            }
-        }
-    default:
-      return state
+        default:
+            return state
     }
-  }
+}

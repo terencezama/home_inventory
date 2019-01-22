@@ -3,6 +3,7 @@ import { Types } from '.';
 import {checkUserLoggedIn, loginUser,registerUser,forgotPassword, logoutUser} from './auth/sagas';
 import { request, create, read, update, remove } from './types';
 import inventorySaga from './inventory/sagas';
+import {listRecipes} from './recipes/sagas'
 const crudTake = (type,saga) => {
   return [
     takeLatest(request(create(type)),saga.create),
@@ -19,6 +20,7 @@ export default function * root () {
       takeLatest(request(Types.USER_REGISTER),registerUser),
       takeLatest(request(Types.USER_FORGOTPASSWORD),forgotPassword),
       takeLatest(Types.USER_LOGOUT,logoutUser),
-      ...crudTake(Types.INVENTORY,inventorySaga)
+      ...crudTake(Types.INVENTORY,inventorySaga),
+      takeLatest(request(Types.RECIPES),listRecipes)
     ])
   }

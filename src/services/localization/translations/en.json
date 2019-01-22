@@ -26,7 +26,8 @@
     "field_weekly_consumption":"Weekly consumption",
     "field_tag":"Tag",
     "field_unitprice":"Unit Price*",
-
+    "field_specific_brand":"Specific Brand",
+    "field_places_to_buy":"Places to buy",
 
     "welcome_continue":"Continue",
 
@@ -49,18 +50,19 @@
     "auth/invalid-email":"Email address is invalid",
     "auth/weak-password":"Password is weak.",
 
-    "menu/bible":"Bible LSG",
-    "menu/shares":"Partages",
-    "menu/events":"Évenements",
-    "menu/summaries":"Résumés",
-    "menu/notifications":"Notifications",
-    "menu/highlights":"Points forts",
-    "menu/history":"Histoire",
-    "menu/logout":"Quittez",
-    "menu/verse":"Verset du jour",
+
+    "menu/inventory_add":"Add Inventory",
+    "menu/inventory_list":"List Inventory",
+    "menu/logout":"Log Out",
+    "menu/contacts":"Contacts",
+    "menu/recipes":"Recipes",
+    "menu/settings":"Settings",
+    
 
 
     "inventory/add_title":"Add Inventory Item",
+    "inventory/list":"Inventory List",
+    "inventory/update_title":"Update Inventory Item"
     
 
 }

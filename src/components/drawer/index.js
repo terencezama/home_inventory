@@ -18,8 +18,8 @@ const CustomDrawerContentComponent = (props) => {
         <ScrollView >
             <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
                 <Drawer>
-                <View>
-                <Image source={Images.menu_logo} style={{flex:1,backgroundColor:'green'}} />
+                <View style={{justifyContent:'center', alignItems:'center'}}>
+                <Image source={Images.welcome.appicon} style={{flex:1,margin:8}} resizeMode={'center'} />
                 <View style={styles.textContainer}>
                     <Text style={material.title}>{props.ui.user?props.ui.user.nickname:''}</Text>
                     <Text style={material.subheading}>{props.ui.user?props.ui.user.email:''}</Text>
@@ -28,11 +28,11 @@ const CustomDrawerContentComponent = (props) => {
                     <Drawer.Section
                         divider
                         items={[
-                            { icon: 'event-note', value: i18n.t('menu/verse'), onPress:()=>this._navigate('WelcomeScreen') },
-                            { icon: 'book', value: i18n.t('menu/bible'), onPress:()=>this._navigate('BibleScreen')},
-                            { icon: 'share', value: i18n.t('menu/shares'), onPress:()=>this._navigate('SharesScreen')  },
-                            { icon: 'event', value: i18n.t('menu/events'), onPress:()=>this._navigate('EventsScreen') },
-                            { icon: 'history', value: i18n.t('menu/summaries'), onPress:()=>this._navigate('SummariesScreen') },
+                            { icon: 'event-note', value: i18n.t('menu/inventory_list'), onPress:()=>this._navigate('main') },
+                            { icon: 'add', value: i18n.t('menu/inventory_add'), onPress:()=>this._navigate('InventoryEditorScreen')},
+                            { icon: 'account-box', value: i18n.t('menu/contacts'), onPress:()=>this._navigate('ContactsScreen')},
+                            { icon: 'donut-large', value: i18n.t('menu/recipes'), onPress:()=>this._navigate('RecipesScreen')},
+
                             
                         ]}
                     />
@@ -40,7 +40,7 @@ const CustomDrawerContentComponent = (props) => {
                         title="Personal"
                         items={[
                             // { icon: 'bookmark-border', value: i18n.t("menu/notifications") },
-                            { icon: 'highlight', value: i18n.t("menu/highlights"), onPress:()=>this._navigate('BibleHighlightsScreen') },
+                            { icon: 'settings', value: i18n.t("menu/settings"), onPress:()=>this._navigate('SettingsScreen') },
                             // { icon: 'history', value: i18n.t("menu/history") },
                             { icon: 'power-settings-new', value: i18n.t("menu/logout"), active:true, onPress:()=>{props.logoutRequest()}},
                         ]}
